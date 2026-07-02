@@ -1,0 +1,47 @@
+import random
+
+actions = ["rock", "paper", "scissors"] 
+
+turns_taken = 0 
+        
+while True:
+    
+    user_choice = input("Enter your choice: rock, paper, or scissors: ").lower()
+    
+    if user_choice == "quit":
+        print("Thanks for playing!")
+        break
+    
+    if user_choice not in actions:
+        print("Please try again")
+        continue
+        
+    computer_choice = random.choice(actions)
+    print(f"The computer chose {(computer_choice)} this time!")
+
+    if computer_choice == user_choice:
+        print("its a tie!") 
+        
+    elif computer_choice == "rock":
+        if user_choice == "paper":
+            print("You win!") 
+        else:
+            print("You lose :(")
+            
+    elif computer_choice == "paper":
+        if user_choice == "rock":
+            print("You lose :(") 
+        else:
+            print("You win!") 
+            
+    elif computer_choice == "scissors":
+        if user_choice == "paper":
+            print("You lose :(")
+        else:
+            print("You win!")
+            
+    turns_taken += 1  
+    
+    if turns_taken == 3:
+        print("Game is over! Thanks for playing!") 
+        break
