@@ -1,0 +1,43 @@
+def addition(x, y):
+    return(x + y)
+
+def subtraction(x, y):
+    return(x - y)
+
+def multiplication(x, y):
+    return(x * y)
+
+def division(x, y):
+    return(x / y) 
+ 
+        
+while True:
+    
+        input_1 = float(input("Please enter the first number"))
+        input_2 = float(input("Please enter the second number"))
+                
+        user_choice = input("Please select the operation you wish to use: \n1. Addition \n2. Subtraction \n3. Multiplication \n4. Division")
+    
+        if user_choice == "1":
+                result = addition(input_1, input_2)
+                print(f"{(input_1)} + {(input_2)} = {(result)}")
+        
+        elif user_choice == "2":
+                result = subtraction(input_1, input_2)
+                print(f"{(input_1)} - {(input_2)} = {(result)}")
+        
+        elif user_choice == "3":
+                result = multiplication(input_1, input_2)
+                print(f"{(input_1)} * {(input_2)} = {(result)}")
+                      
+        elif user_choice == "4":
+                result = division(input_1, input_2)
+                print(f"{(input_1)} / {(input_2)} = {(result)}")
+        else:
+                print("Please choose either 1, 2, 3 or 4") 
+
+        repeat_prompt = (input("Would you like to perform another calculation? \nYes or No"))  
+
+        if repeat_prompt == "No":
+            print("Goodbye!")
+            break
