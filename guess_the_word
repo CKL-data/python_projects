@@ -1,0 +1,47 @@
+Title: Building an Interactive "word guessing" Game!
+
+game_name = "Word Up!" 
+
+word_bank = open("words.txt", "r")
+
+words_list = [] 
+
+for my_line in word_bank.readlines():
+    words_list.append(my_line.strip())
+print(words_list)
+
+import random
+correct_word = random.choice(words_list)
+
+wrong_guesses = []
+wrong_location = []
+max_turns = 10 
+turns_taken = 0 
+turns_left = max_turns - turns_taken
+
+print("Welcome to", game_name)
+print("Please guess the correct", len(correct_word), "letter word")
+print("You have", max_turns, "turns to guess the correct word")
+
+user_guess = input("What is your guess?") 
+
+while turns_taken < max_turns:
+    user_guess = input("What is your guess?") 
+    if len(user_guess) != len(correct_word):
+        print("Please choose a", len(correct_word), "letter word")
+        continue
+    turns_taken += 1
+
+    for x in range(len(correct_word)):
+        if user_guess[x] == correct_word[x]: 
+            print(f"Letter {(user_guess[x])} is in the correct place!")
+        elif user_guess[x] in correct_word: 
+            print(f"Letter {(user_guess[x])} is in the wrong place")
+        else:
+            print(f"Letter {(user_guess[x])} is not in the word") 
+    
+    if user_guess == correct_word:
+        print(f"Well done! {(user_guess)} is the correct answer!")
+        break 
+
+**Code runs correctly! :)** 
