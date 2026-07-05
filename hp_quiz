@@ -1,0 +1,138 @@
+questions = {
+    1: {
+        "question": "How did the Spell Checking quill misspell Ron Weasley's name in the Half-Blood Prince?", 
+        "choices": {
+            "A": "Rondus Wigwab", 
+            "B": "Roonil Wazlib",
+            "C": "Runsip Weelis"
+        }, 
+        "answer": "B" 
+    },
+    
+    2: {
+        "question": "Where does Dumbledore's Army hold meetings?", 
+        "choices": {
+            "A": "The Room of Requirement",
+            "B": "The Great Hall",
+            "C": "The Hogwarts Dungeons"
+        },
+        "answer": "A"
+    }, 
+    
+    3: {
+        "question": "What charm was used to create the Maurauder's Map?",
+        "choices": {
+            "A": "The Fidelius Charm",
+            "B": "The Unlocking Charm",
+            "C": "The Homonculous Charm" 
+        },
+        "answer": "C"
+    }, 
+    
+    4: {
+        "question": "Which magical creature is Luna Lovegood determined to track down?", 
+        "choices": {
+            "A": "Crumple-Horned Snorkack",
+            "B": "Water Dragon",
+            "C": "Appaloosa Puffskein"
+        },
+        "answer": "A"
+    }, 
+    
+    5: {
+        "question": "Which of the following potions are poisonous?",
+        "choices": {
+            "A": "Murtlap Essence",
+            "B": "Angels Trumpet Draught",
+            "C": "Cupid Crystals"
+        },
+        "answer": "B"
+    },
+    
+    6: {
+        "question": "What is Harry Potter's favourite dessert?",
+        "choices": {
+            "A": "Sticky Toffee Pudding",
+            "B": "Tiramisu",
+            "C": "Treacle Tart"
+        },
+        "answer": "C"
+    },
+    
+    7: {
+        "question": "Whom of the following was NOT one of the Hogwarts Headmasters/Headmistresses?",
+        "choices": {
+            "A": "Severus Snape",
+            "B": "Alastor Moody",
+            "C": "Minerva McGonagall"
+        },
+        "answer": "B"
+    },
+    
+    8: {
+        "question": "What is Gilderoy Lockhart's favourite colour?", 
+        "choices": {
+            "A": "Lilac",
+            "B": "Magenta",
+            "C": "Fuschia"
+        },
+        "answer": "A"
+    },
+    
+    9: {
+        "question": "Which spells would you use if you wanted to turn an enemy to stone and shatter them, without alerting those nearby?",
+        "choices": {
+            "A": "Reducio, Petrificus Totalus, Bombarda",
+            "B": "Silencio, Immobulus, Diffindo",
+            "C": "Muffliato, Duro, Reducto"
+        },
+        "answer": "C"
+    },
+    
+    10: {
+        "question": "Which of the following dragons were NOT used in the first task of the Triwizard Tounament in Book 4?",
+        "choices": {
+            "A": "Swedish Shortsnout",
+            "B": "Chinese Fireball",
+            "C": "Norwedgian Ridgeback"
+        },
+        "answer": "C"
+    }}
+
+quiz_name = "Harry Potter Trivia Quiz!" 
+
+name = input("What is your name?")
+
+print(f"Hello, {name}. Welcome to {quiz_name}") 
+
+print("There will be 10 multiple-choice questions. Please choose an answer, and your score will be calculated at the end :)") 
+
+score = 0
+        
+def prompt(question_number):
+    print(question_number["question"])
+    
+    for letter, choice in question_number ["choices"].items():
+        print(f"{letter}. {choice}") 
+        
+    user_answer = input("Please enter A, B or C as your answer: ").upper()
+    
+    if user_answer == question_number["answer"]: 
+        print(f"\nWell Done! {user_answer} was correct!\n")
+        return 1
+    else:
+        print(f"\nNot quite :(. The correct answer was {question_number['answer']}\n") 
+        return 0 
+
+while True:
+    
+    begin = input("Are you ready to start? (Y/N)").upper()
+    if begin == "Y":
+        break
+    else:
+        print("Maybe next time!")
+        exit()
+    
+for question in questions.values():
+        score += prompt(question)
+print(f"Thank you for playing! Your final score is {score}/10!") 
